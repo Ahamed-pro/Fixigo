@@ -1,0 +1,190 @@
+/* ══════════════════════════════════════════
+   FIXIGO — reset.css
+   Reset Password page — matches Fixigo theme
+   ══════════════════════════════════════════ */
+
+:root {
+  --orange:      #FF5C1A;
+  --orange-dark: #e04c0f;
+  --dark:        #0A0A0F;
+  --dark2:       #111118;
+  --dark3:       #18181F;
+  --dark4:       #222230;
+  --border:      rgba(255,255,255,0.07);
+  --text:        #F0EFE8;
+  --text-muted:  rgba(240,239,232,0.5);
+  --text-dim:    rgba(240,239,232,0.22);
+  --green:       #3DDB7A;
+  --red:         #FF4C4C;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* ── CONTAINER ── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  padding: 0 16px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--dark3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+.card h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.card h2 span { color: var(--orange); }
+
+.card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ── FORM ── */
+form input[type="password"] {
+  width: 100%;
+  background: var(--dark4);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 16px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  margin-bottom: 20px;
+}
+form input[type="password"]::placeholder { color: var(--text-dim); }
+form input[type="password"]:focus {
+  border-color: rgba(255,92,26,.5);
+  box-shadow: 0 0 0 3px rgba(255,92,26,.08);
+}
+
+form button[type="submit"] {
+  width: 100%;
+  padding: 13px;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 18px rgba(255,92,26,.35);
+}
+form button[type="submit"]:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,92,26,.45);
+}
+
+/* ── SUCCESS / ERROR ALERTS ── */
+.alert {
+  display: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.alert-ok  {
+  background: rgba(61,219,122,.1);
+  border: 1px solid rgba(61,219,122,.3);
+  color: var(--green);
+}
+.alert-err {
+  background: rgba(255,76,76,.08);
+  border: 1px solid rgba(255,76,76,.3);
+  color: var(--red);
+}
+.alert {
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.alert-ok {
+    background: #e6ffed;
+    color: #1a7f37;
+    border: 1px solid #b7ebc6;
+}
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 14px 20px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: slideIn 0.4s ease;
+    z-index: 9999;
+}
+
+.toast.success {
+    background: #28a745;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-err {
+  background: rgba(255,76,76,.08);
+  border: 1px solid rgba(255,76,76,.3);
+  color: var(--red);
+  box-shadow: 0 4px 12px rgba(255,76,76,.25);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 520px) {
+  .card { padding: 28px 22px; }
+  .card h2 { font-size: 20px; }
+}
+
+@media (max-width: 380px) {
+  .card { padding: 22px 16px; border-radius: 14px; }
+  .card h2 { font-size: 18px; }
+  form button[type="submit"] { font-size: 14px; padding: 12px; }
+}
