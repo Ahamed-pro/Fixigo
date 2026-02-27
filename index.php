@@ -39,6 +39,7 @@ $result = $conn->query($sql);
       <span>Fix<b>igo</b></span>
     </a>
 
+    
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#how">How It Works</a></li>
