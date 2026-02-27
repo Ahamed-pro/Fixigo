@@ -32,7 +32,7 @@ $result = $conn->query($sql);
 
   <canvas id="dots"></canvas>
 
-
+ 
   <nav id="navbar">
     <a href="index.php" class="logo">
       <div class="logo-icon">🔧</div>
