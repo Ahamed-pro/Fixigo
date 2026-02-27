@@ -74,6 +74,7 @@ $pending_req  = count(array_filter($requests, fn($r) => $r['status'] === 'pendin
       <div class="sb-label">Main</div>
       <a class="sb-item active" href="#"><span class="ic">🏠</span>Dashboard</a>
       <a class="sb-item" href="../index.php#workshops"><span class="ic">🔍</span>Find Workshops</a>
+      <a class="sb-item" href="../chat/chat.php"><span class="ic">💬</span>Messages</a>
       <a class="sb-item" href="#" onclick="event.preventDefault();openModal('modal-request')"><span class="ic">📋</span>New Request</a>
       <div class="sb-label">Account</div>
       <a class="sb-item" href="#" onclick="event.preventDefault();openModal('modal-vehicle')"><span class="ic">🚗</span>My Vehicles</a>

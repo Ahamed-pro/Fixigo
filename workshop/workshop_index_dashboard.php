@@ -70,11 +70,13 @@ $ignored_req  = count(array_filter($all_requests, fn($r) => $r['status'] === 'ig
       <div class="sb-avatar"><?= strtoupper(substr($first_name, 0, 1)) ?></div>
       <div class="sb-name"><?= htmlspecialchars($user_name) ?></div>
       <span class="sb-role">🏪 Workshop Owner</span>
+  
     </div>
     <nav class="sb-nav">
       <div class="sb-label">Workshop</div>
       <a class="sb-item active" href="#"><span class="ic">🏠</span>Dashboard</a>
       <a class="sb-item" href="#" onclick="scrollToRequests()"><span class="ic">📋</span>Service Requests
+          <a class="sb-item" href="../chat/chat.php"><span class="ic">💬</span>Messages</a>
         <?php if ($pending_req > 0): ?>
           <span style="margin-left:auto;background:var(--orange);color:#fff;font-size:10px;padding:1px 7px;border-radius:50px"><?= $pending_req ?></span>
         <?php endif; ?>
