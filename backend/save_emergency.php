@@ -45,16 +45,16 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'sendersmail';
-    $mail->Password = ''; 
+    $mail->Username = 'your_email@gmail.com';
+    $mail->Password = 'your_app_password'; 
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
 $time = date("Y-m-d H:i:s");
 
 
-    $mail->setFrom('sendersmail', 'Fixigo Emergency');
-    $mail->addAddress('resiversmail');
+    $mail->setFrom('your_email@gmail.com', 'Fixigo Emergency');
+    $mail->addAddress('receiver_email@example.com');
 
    $mail->Subject = 'Emergency Request ';
    $mail->Body    = "Dear Fixigo Team,\n\n".

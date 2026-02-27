@@ -20,7 +20,7 @@ Use this app password as the password in the PHP files.
 Files Requiring Email Configuration
 File Path	Required Info
 backend/register.php	Sender email and App Password (for sending emails)
-backend/register.php	Receiver email, Sender email, and App Password
+backend/save_emergancy.php	Receiver email, Sender email, and App Password
 footer/submit_contact.php	Sender email and App Password
 password/forgot_password.php	Sender email and App Password
 

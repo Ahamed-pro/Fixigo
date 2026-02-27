@@ -47,15 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'sendersmail';
-            $mail->Password = '';
+            $mail->Username = 'your_email@gmail.com';
+            $mail->Password = 'your_app_password';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
             $time = date("Y-m-d H:i:s");
 
 
-            $mail->setFrom('sendersmail', 'Reset Password');
+            $mail->setFrom('your_email@gmail.com', 'Reset Password');
             $mail->addAddress($email);
 
             $mail->Subject = 'Reset password! ';

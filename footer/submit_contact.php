@@ -37,8 +37,8 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'sendersmail';
-    $mail->Password = ''; 
+    $mail->Username = 'your_email@gmail.com';
+    $mail->Password = 'your_app_password'; 
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
@@ -47,7 +47,7 @@ $fullname = $first_name." ".$last_name;
 $time = date("Y-m-d H:i:s");
 
 
-    $mail->setFrom('sendersmail', 'Fixigo');
+    $mail->setFrom('your_email@gmail.com', 'Fixigo');
     $mail->addAddress($email,$fullname);
 
    $mail->Subject = 'Thank you for Reaching us!';
