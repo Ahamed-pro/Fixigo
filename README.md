@@ -1,4 +1,4 @@
-FIXIGO – Web Application bro
+FIXIGO – Web Application 
 Overview
 
 Fixigo is a service-oriented web application connecting users with workshops. This project contains both frontend and backend functionality, including user registration, login, contact forms, and password reset.
