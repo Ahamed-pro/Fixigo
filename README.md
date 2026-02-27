@@ -26,6 +26,17 @@ password/forgot_password.php	Sender email and App Password
 
 ⚠ Note: Do not use your normal Gmail password. Only use the App Password generated after enabling 2-Step Verification.
 
+# Using phpMyAdmin 
+# Open http://localhost/phpmyadmin
+# Create a new database (e.g., fixigo)
+# Import fixigo.sql from config folder
+
+
+$servername = "localhost";
+$username = "root";        // default XAMPP MySQL username
+$password = "";            // default XAMPP MySQL password
+$dbname = "fixigo";        // the database you imported
+
 How to Enter the Credentials
 
 In the PHP files mentioned above, replace the placeholders with your own information:
