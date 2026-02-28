@@ -13,13 +13,13 @@ $last_id     = (int)($_GET['last_id'] ?? 0);
 
 if (!$conv_id) { echo json_encode(['success'=>false]); exit; }
 
-// Mark incoming messages as read & reset our unread counter
+
 $other_type = $my_type === 'user' ? 'workshop' : 'user';
 $conn->query("UPDATE chat_messages SET is_read=1 WHERE conversation_id=$conv_id AND sender_type='$other_type' AND is_read=0");
 $unread_col = $my_type === 'user' ? 'user_unread' : 'ws_unread';
 $conn->query("UPDATE chat_conversations SET $unread_col=0 WHERE id=$conv_id");
 
-// Fetch only new messages
+
 $stmt = $conn->prepare("
     SELECT id, sender_id, sender_type, message, is_read,
            DATE_FORMAT(created_at,'%H:%i') AS time_fmt,

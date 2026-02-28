@@ -12,14 +12,14 @@ function drawDots() {
 rsz(); initDots(); drawDots();
 window.addEventListener('resize', () => { rsz(); initDots(); });
 
-// ── STATE ───────────────────────────────
-let activeConvId  = null;   // currently open conversation id
-let lastMsgId     = 0;      // last message id received (for polling)
-let pollTimer     = null;   // setInterval handle
-let allConvs      = [];     // raw conversations from server
-let lastDates     = {};     // track date seps per conv
 
-// ── LOAD CONVERSATIONS ───────────────────
+let activeConvId  = null;   
+let lastMsgId     = 0;      
+let pollTimer     = null;   
+let allConvs      = [];    
+let lastDates     = {};     
+
+
 function loadConvList() {
   fetch('../backendchat/chat_list.php')
     .then(r => r.json())
@@ -116,7 +116,7 @@ function openConvByWorkshop(el) {
     .then(d => {
       el.style.opacity = '1';
       if (!d.success) { alert('Error: ' + (d.error || 'Could not open chat.')); return; }
-      // Add to local conv list if brand new
+
       if (!allConvs.find(c => c.id == d.conversation_id)) {
         allConvs.unshift({ id: d.conversation_id, other_name: d.other_name, unread: 0, last_message: '', last_at: '' });
         renderConvList(allConvs);
@@ -160,7 +160,7 @@ function activateChat(convId, otherName, messages, myType, myId) {
     if (badge) badge.remove();
   }
 
-  // Start polling
+
   if (pollTimer) clearInterval(pollTimer);
   pollTimer = setInterval(() => pollMessages(), 2000);
 }
@@ -176,7 +176,7 @@ function pollMessages() {
         if (m.id > lastMsgId) {
           appendMsg(m, d.my_type, MY_ID);
           lastMsgId = m.id;
-          // Update conv preview
+       
           const convEl = document.querySelector(`.conv-item[data-id="${activeConvId}"] .conv-item-preview`);
           if (convEl) convEl.textContent = m.message.substring(0, 40) + (m.message.length > 40 ? '…' : '');
         }
@@ -218,7 +218,7 @@ function appendMsg(m, myType, myId) {
   if (m.id > lastMsgId) lastMsgId = m.id;
 }
 
-// ── SEND MESSAGE ──
+
 function sendMsg() {
   const input = document.getElementById('msg-input');
   const msg   = input.value.trim();

@@ -76,7 +76,7 @@ $back_link = $my_type === 'user' ? '../user/user_index_dashboard.php' : '../work
 
 <div class="main-wrap">
 
-  <!-- LEFT: Conversation list -->
+
   <div class="conv-panel" id="conv-panel">
     <div class="conv-header">
       <div>
@@ -112,7 +112,7 @@ $back_link = $my_type === 'user' ? '../user/user_index_dashboard.php' : '../work
 
   
     <div class="chat-window" id="chat-window" style="display:none">
-      <!-- Header -->
+
       <div class="chat-header">
         <button class="back-btn" onclick="backToList()">←</button>
         <div class="chat-avatar" id="ch-avatar">?</div>

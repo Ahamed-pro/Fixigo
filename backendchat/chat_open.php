@@ -23,7 +23,6 @@ if ($my_type === 'user') {
         $workshop = $ws->get_result()->fetch_assoc();
         if (!$workshop) { echo json_encode(['success'=>false,'error'=>'Workshop not found']); exit; }
 
-        // Get or create conversation
         $find = $conn->prepare("SELECT id FROM chat_conversations WHERE user_id=? AND workshop_id=? LIMIT 1");
         $find->bind_param("ii", $my_id, $workshop_id);
         $find->execute();
@@ -62,7 +61,7 @@ if ($my_type === 'user') {
     $conv_id = (int)($_POST['conversation_id'] ?? 0);
     if (!$conv_id) { echo json_encode(['success'=>false,'error'=>'Missing conversation_id']); exit; }
 
-    // Get user name
+
     $cu = $conn->prepare("SELECT cc.id, u.full_name FROM chat_conversations cc JOIN users u ON u.id=cc.user_id WHERE cc.id=? LIMIT 1");
     $cu->bind_param("i", $conv_id);
     $cu->execute();
@@ -71,13 +70,13 @@ if ($my_type === 'user') {
     $other_name = $crow['full_name'];
 }
 
-// Mark incoming as read + reset unread
+
 $other_type = $my_type === 'user' ? 'workshop' : 'user';
 $conn->query("UPDATE chat_messages SET is_read=1 WHERE conversation_id=$conv_id AND sender_type='$other_type'");
 $unread_col = $my_type === 'user' ? 'user_unread' : 'ws_unread';
 $conn->query("UPDATE chat_conversations SET $unread_col=0 WHERE id=$conv_id");
 
-// Load last 60 messages
+
 $msgs = $conn->prepare("
     SELECT id, sender_id, sender_type, message, is_read,
            DATE_FORMAT(created_at,'%H:%i') AS time_fmt,

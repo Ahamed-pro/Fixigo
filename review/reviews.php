@@ -45,7 +45,7 @@ while ($r = $reviews_result->fetch_assoc()) $reviews[] = $r;
 <body>
 <canvas id="dots"></canvas>
 
-<!-- NAV -->
+
 <nav class="nav">
   <a href="../index.php" class="nav-logo"><div class="li">🔧</div><span>Fix<b>igo</b></span></a>
   <div class="nav-links">
@@ -176,7 +176,7 @@ while ($r = $reviews_result->fetch_assoc()) $reviews[] = $r;
       </select>
     </div>
 
-    <!-- REVIEW CARDS -->
+
     <div class="reviews-grid" id="reviews-grid">
       <?php if (empty($reviews)): ?>
       <div class="empty" style="grid-column:1/-1">
@@ -266,7 +266,7 @@ function highlightStars(val) {
   });
 }
 
-// ── SUBMIT REVIEW ──
+
 function submitReview() {
   const name   = document.getElementById('rv-name').value.trim();
   const email  = document.getElementById('rv-email').value.trim();
